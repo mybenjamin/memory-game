@@ -1,1 +1,6 @@
-<p>card works!</p>
+<mat-card class="playing-card" (click)="onCardClick()" [@cardFlip]="state">
+    <div class="card-front">front</div>
+    <div class="card-back">
+        <div class="back-design"></div>
+    </div>
+</mat-card>

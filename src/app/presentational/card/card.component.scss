@@ -1,0 +1,64 @@
+@use '@angular/material' as mat;
+
+$card-height: 200px;
+$card-background-color: rgb(255, 211, 66);
+$card-border-color: rgb(255, 255, 255);
+$animation-speed: 400ms;
+
+:host {
+  display: block;
+  perspective: 1400px;
+  border-radius: 1em;
+  transition: all $animation-speed;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.playing-card {
+  height: $card-height;
+  aspect-ratio: 4 / 6;
+  border-radius: 1em;
+
+  cursor: pointer;
+  transform-style: preserve-3d;
+
+  @include mat.elevation(2);
+  @include mat.elevation-transition($animation-speed);
+
+  &:hover {
+    @include mat.elevation(10);
+  }
+}
+
+.card-back,
+.card-front {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 1em;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $card-background-color;
+  border: .4em solid $card-border-color;
+  border-radius: 1em;
+
+  .back-design {
+    opacity: .6;
+    height: calc(100% - 3em);
+    width: calc(100% - 3em);
+    border-radius: inherit;
+    border: 1px solid $card-border-color;
+  }
+}

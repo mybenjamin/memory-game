@@ -1,0 +1,12 @@
+$background-color: rgb(238,239,235);
+
+:host {
+    display: block;
+    height: 100vh;
+    background-color: $background-color;
+}
+
+.landing-container {
+    padding: 5em;
+    padding-bottom: 2em;
+}

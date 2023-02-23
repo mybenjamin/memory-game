@@ -1,9 +1,14 @@
+// Angular Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Material Imports
+import {MatCardModule} from '@angular/material/card';
+
+// App Imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './presentational/card/card.component';
 import { LandingComponent } from './container/landing/landing.component';
 
@@ -15,8 +20,9 @@ import { LandingComponent } from './container/landing/landing.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
