@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardStateEnum } from 'src/app/models/card-state.enum';
+import { Card } from 'src/app/models/card.model';
 import { cardFlip } from '../../animations/card-flip.animation';
 
 @Component({
@@ -9,6 +10,7 @@ import { cardFlip } from '../../animations/card-flip.animation';
   animations: [cardFlip]
 })
 export class CardComponent {
+  @Input() config: Card | undefined;
   state = CardStateEnum.normal;
 
   onCardClick(): void {

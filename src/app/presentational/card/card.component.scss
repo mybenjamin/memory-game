@@ -43,6 +43,7 @@ $animation-speed: 400ms;
 
 .card-front {
   transform: rotateY(180deg);
+  background-size: cover;
 }
 
 .card-back {

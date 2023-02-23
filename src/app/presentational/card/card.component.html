@@ -1,5 +1,6 @@
-<mat-card class="playing-card" (click)="onCardClick()" [@cardFlip]="state">
-    <div class="card-front">front</div>
+<mat-card class="playing-card" [@cardFlip]="state" (click)="onCardClick()">
+    <div class="card-front" [style.background-image]="'url(' + config?.url + ')'">
+    </div>
     <div class="card-back">
         <div class="back-design"></div>
     </div>
