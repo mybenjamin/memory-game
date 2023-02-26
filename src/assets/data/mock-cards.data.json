@@ -23,5 +23,30 @@
         "name": "skirt",
         "url": "/assets/images/clothes/skirt.png",
         "state": "normal"
+    },
+    {
+        "name": "dungarees",
+        "url": "/assets/images/clothes/dungarees.png",
+        "state": "normal"
+    },
+    {
+        "name": "hat",
+        "url": "/assets/images/clothes/hat.png",
+        "state": "normal"
+    },
+    {
+        "name": "shirt",
+        "url": "/assets/images/clothes/shirt.png",
+        "state": "normal"
+    },
+    {
+        "name": "shoes",
+        "url": "/assets/images/clothes/shoes.png",
+        "state": "normal"
+    },
+    {
+        "name": "skirt",
+        "url": "/assets/images/clothes/skirt.png",
+        "state": "normal"
     }
 ]

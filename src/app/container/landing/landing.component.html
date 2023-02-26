@@ -1,6 +1,6 @@
 <div class="landing-container">
     <section class="memory-game">
-        <app-card *ngFor="let card of cards" [config]="card"></app-card>
+        <app-card *ngFor="let card of gameState$ | async" [config]="card" (cardClicked)="onCardClick(card)"></app-card>
     </section>
     <section class="info"></section>
     <section class="sign-up"></section>

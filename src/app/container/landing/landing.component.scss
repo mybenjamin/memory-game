@@ -1,4 +1,4 @@
-$background-color: rgb(238,239,235);
+$background-color: rgb(238, 239, 235);
 
 :host {
     display: block;
@@ -9,4 +9,23 @@ $background-color: rgb(238,239,235);
 .landing-container {
     padding: 5em;
     padding-bottom: 2em;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: repeat(2, 200px);
+    grid-row-gap: 1em;
+
+    app-card {
+        &:hover {
+            transform: translateY(-8px);
+        }
+    }
+
+    app-card:nth-child(n+6) {
+        &:hover {
+            transform: translateY(8px);
+        }
+    }
 }

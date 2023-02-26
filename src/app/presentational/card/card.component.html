@@ -1,4 +1,4 @@
-<mat-card class="playing-card" [@cardFlip]="state" (click)="onCardClick()">
+<mat-card class="playing-card" [@cardFlip]="config?.state" (click)="onCardClick()">
     <div class="card-front" [style.background-image]="'url(' + config?.url + ')'">
     </div>
     <div class="card-back">

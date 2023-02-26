@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardStateEnum } from 'src/app/models/card-state.enum';
 import { Card } from 'src/app/models/card.model';
 import { cardFlip } from '../../animations/card-flip.animation';
@@ -11,13 +11,10 @@ import { cardFlip } from '../../animations/card-flip.animation';
 })
 export class CardComponent {
   @Input() config: Card | undefined;
+  @Output() cardClicked = new EventEmitter<Card>()
   state = CardStateEnum.normal;
 
   onCardClick(): void {
-    if (this.state !== CardStateEnum.normal) {
-      this.state = CardStateEnum.normal;
-      return;
-    }
-    this.state = CardStateEnum.flipped;
+    this.cardClicked.emit();
   }
 }
