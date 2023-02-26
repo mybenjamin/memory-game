@@ -3,6 +3,7 @@ import { BehaviorSubject, tap } from 'rxjs';
 import { CardStateEnum } from 'src/app/models/card-state.enum';
 import { Card } from 'src/app/models/card.model';
 import { CardService } from 'src/app/services/card.service';
+import { GameService } from 'src/app/services/game.service';
 
 
 @Component({
@@ -12,9 +13,9 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class LandingComponent implements OnInit {
   gameState$ = new BehaviorSubject<Card[]>([]);
-  previousCard: Card | null = null;
+  private previousCard: Card | null = null;
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, private gameService: GameService) { }
 
   ngOnInit(): void {
     this.startGame();
@@ -26,12 +27,14 @@ export class LandingComponent implements OnInit {
     if (!this.previousCard) {
       this.flipCard(card);
       this.previousCard = card;
+      this.gameService.saveState(this.gameState$.value);
       return;
     }
 
     if(card.name === this.previousCard?.name) {
       this.solveSelection(card);
       this.previousCard = null;
+      this.gameService.saveState(this.gameState$.value);
       return;
     }
     
@@ -40,6 +43,11 @@ export class LandingComponent implements OnInit {
   }
 
   private startGame(): void {
+    const state = this.gameService.loadState();
+    if (state) { 
+      this.gameState$.next(state);
+      return; 
+    }
     this.cardService.get().pipe(tap(cards => this.shuffleCards(cards)))
       .subscribe(response => this.gameState$.next(response));
   }
@@ -54,6 +62,7 @@ export class LandingComponent implements OnInit {
     if(this.previousCard) this.previousCard.state = CardStateEnum.normal;
     card.state = CardStateEnum.normal;
     this.previousCard = null;
+    this.gameService.saveState(this.gameState$.value);
   }
 
   private flipCard(card: Card): void {
