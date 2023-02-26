@@ -7,6 +7,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
+  formSubmitted = false;
+
   nameRegex = new RegExp(/^[A-Za-z\s]*$/);
   signUpForm =  new FormGroup({
     name: new FormControl([''], [Validators.required, Validators.pattern(this.nameRegex)]),
@@ -15,6 +17,6 @@ export class SignUpComponent {
   
   onSubmit(): void {
     // Submit to backend
-    console.log(this.signUpForm);
+    this.formSubmitted = !this.formSubmitted;
   }
 }

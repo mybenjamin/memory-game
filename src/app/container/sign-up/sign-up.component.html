@@ -1,17 +1,29 @@
-<div class="sign-up-container">
-  <div class="form-info">
-    <h2>Bee informed <br>when we launch.</h2>
-    <p>Drop your deets and we'll give you a buzz.</p>
-  </div>
-
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="form-fields">
-      <input id="name" type="text" formControlName="name" placeholder="Your name">
-      <input id="email" type="email" formControlName="email" placeholder="Email address">
+<ng-container *ngIf="formSubmitted; else showForm">
+  <div class="message-container">
+    <button (click)="onSubmit()"><mat-icon aria-hidden="false" aria-label="close icon" fontIcon="close"></mat-icon></button>
+    <div class="message">
+      <h2><strong>Thank you!</strong></h2>
+      <p>We'll see you in your inbox soon!</p>
     </div>
+  </div>
+</ng-container>
 
-    <app-checkbox></app-checkbox>
-  </form>
-
-  <button>Sign me up</button>
-</div>
+<ng-template #showForm>
+  <div class="sign-up-container">
+    <div class="form-info">
+      <h2>Bee informed <br>when we launch.</h2>
+      <p>Drop your deets and we'll give you a buzz.</p>
+    </div>
+    
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-fields">
+        <input id="name" type="text" formControlName="name" placeholder="Your name">
+        <input id="email" type="email" formControlName="email" placeholder="Email address">
+      </div>
+      
+      <app-checkbox></app-checkbox>
+    </form>
+    
+    <button class="sign-up-button" (click)="onSubmit()">Sign me up</button>
+  </div>
+</ng-template>

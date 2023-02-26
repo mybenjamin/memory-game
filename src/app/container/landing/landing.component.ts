@@ -44,7 +44,8 @@ export class LandingComponent implements OnInit {
 
   private startGame(): void {
     const state = this.gameService.loadState();
-    if (state) { 
+    if (state) {
+      this.previousCard = state.find(card => card.state === CardStateEnum.flipped) ?? null;
       this.gameState$.next(state);
       return; 
     }
