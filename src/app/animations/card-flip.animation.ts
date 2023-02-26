@@ -15,9 +15,16 @@ export const cardFlip =
         state(
             CardStateEnum.flipped,
             style({
-                transform: 'rotateY(180deg)'
+                transform: 'rotateY(180deg)',
+            })
+        ),
+        state(
+            CardStateEnum.solved,
+            style({
+                transform: 'rotateY(180deg)',
             })
         ),
         transition(normalToFlipped(), [animate('400ms')]),
         transition(flippedToNormal(), [animate('400ms')]),
+        transition('* => solved', [animate('400ms')]),
     ]);
