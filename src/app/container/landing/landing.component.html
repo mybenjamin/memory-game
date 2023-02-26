@@ -2,7 +2,11 @@
     <section class="memory-game">
         <app-card *ngFor="let card of gameState$ | async" [config]="card" (cardClicked)="onCardClick(card)"></app-card>
     </section>
-    <section class="info"></section>
+    <section class="info">
+        <button>replay</button>
+        <h1>The perfect place to <strong>buy & sell</strong> premium, pre-loved fashion for little ones!</h1>
+        <h2><strong>Delivering something sweet, real soon! </strong>Join the  hive to stay in the loop.</h2>
+    </section>
     <section class="sign-up">
         <app-sign-up></app-sign-up>
     </section>

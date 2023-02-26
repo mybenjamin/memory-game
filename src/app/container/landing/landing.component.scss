@@ -11,6 +11,21 @@ $background-color: rgb(238, 239, 235);
 .landing-container {
     padding: 5em;
     padding-bottom: 2em;
+    display: grid;
+    grid-template-areas: 
+    'memory memory info'
+    'form form form';
+    gap: 4em;
+}
+
+.memory-game {
+    grid-area: memory;
+}
+.info {
+    grid-area: info;
+}
+.sign-up {
+    grid-area: form;
 }
 
 .memory-game {

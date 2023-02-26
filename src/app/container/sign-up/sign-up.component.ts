@@ -7,8 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
+  nameRegex = new RegExp(/^[A-Za-z\s]*$/);
   signUpForm =  new FormGroup({
-    name: new FormControl([''], Validators.required),
+    name: new FormControl([''], [Validators.required, Validators.pattern(this.nameRegex)]),
     email: new FormControl([''], [Validators.required, Validators.email]),
   });
   
