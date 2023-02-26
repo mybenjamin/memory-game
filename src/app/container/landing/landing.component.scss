@@ -4,6 +4,8 @@ $background-color: rgb(238, 239, 235);
     display: block;
     height: 100vh;
     background-color: $background-color;
+    background-image: url('/assets/images/background/background.svg');
+    background-size: cover;
 }
 
 .landing-container {

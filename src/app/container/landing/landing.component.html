@@ -3,5 +3,7 @@
         <app-card *ngFor="let card of gameState$ | async" [config]="card" (cardClicked)="onCardClick(card)"></app-card>
     </section>
     <section class="info"></section>
-    <section class="sign-up"></section>
+    <section class="sign-up">
+        <app-sign-up></app-sign-up>
+    </section>
 </div>

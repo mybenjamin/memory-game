@@ -1,1 +1,17 @@
-<p>sign-up works!</p>
+<div class="sign-up-container">
+  <div class="form-info">
+    <h2>Bee informed <br>when we launch.</h2>
+    <p>Drop your deets and we'll give you a buzz.</p>
+  </div>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-fields">
+      <input id="name" type="text" formControlName="name" placeholder="Your name">
+      <input id="email" type="email" formControlName="email" placeholder="Email address">
+    </div>
+
+    <app-checkbox></app-checkbox>
+  </form>
+
+  <button>Sign me up</button>
+</div>
