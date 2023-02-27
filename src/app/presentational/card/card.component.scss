@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-$card-height: 200px;
 $card-background-color: rgb(255, 211, 66);
 $card-line-color: rgb(239,191,56);
 $card-border-color: rgb(255, 255, 255);
@@ -14,7 +13,6 @@ $animation-speed: 400ms;
 }
 
 .playing-card {
-  height: $card-height;
   aspect-ratio: 4 / 6;
   border-radius: 1em;
 

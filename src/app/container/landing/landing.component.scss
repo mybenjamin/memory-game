@@ -12,27 +12,15 @@ $background-color: rgb(238, 239, 235);
     padding: 5em;
     padding-bottom: 2em;
     display: grid;
-    grid-template-areas: 
-    'memory memory info'
-    'form form form';
+    grid-template-columns: repeat(3, 1fr);
     gap: 4em;
 }
 
 .memory-game {
-    grid-area: memory;
-}
-.info {
-    grid-area: info;
-}
-.sign-up {
-    grid-area: form;
-}
-
-.memory-game {
     display: grid;
-    grid-template-columns: repeat(5, 150px);
-    grid-template-rows: repeat(2, 200px);
-    grid-row-gap: 1em;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1.5em;
 
     app-card {
         &:hover {
@@ -44,5 +32,43 @@ $background-color: rgb(238, 239, 235);
         &:hover {
             transform: translateY(8px);
         }
+    }
+}
+
+.grid-span-2 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.sign-up {
+    grid-column: span 3;
+}
+
+@media only screen and (max-width: 1000px) {
+    .landing-container {
+        padding: 2.5em;
+        padding-bottom: 1em;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4em;
+    }
+
+    .info {
+        grid-row-start: 1;
+    }
+
+    .memory-game {
+        grid-row-start: 2;
+        grid-column: span 1;
+    }
+
+    .coming-soon {
+        grid-row-start: 3;
+        grid-column: span 1;
+    }
+
+    .sign-up {
+        grid-row-start: 4;
+        grid-column: span 1;
     }
 }
