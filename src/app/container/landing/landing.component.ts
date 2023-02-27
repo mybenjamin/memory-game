@@ -21,6 +21,11 @@ export class LandingComponent implements OnInit {
     this.startGame();
   }
 
+  replay(): void {
+    this.gameService.clearState();
+    this.startGame();
+  }
+
   onCardClick(card: Card): void {
     if (card.state !== CardStateEnum.normal) return;
 

@@ -3,7 +3,7 @@
         <app-card *ngFor="let card of gameState$ | async" [config]="card" (cardClicked)="onCardClick(card)"></app-card>
     </section>
     <section class="info">
-        <button>replay</button>
+        <button (click)="replay()">replay</button>
         <h1>The perfect place to <strong>buy & sell</strong> premium, pre-loved fashion for little ones!</h1>
     </section>
     <section class="comming-soon">

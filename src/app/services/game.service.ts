@@ -16,4 +16,8 @@ export class GameService {
     if (!state) return;
     return JSON.parse(state) as Card[];
   }
+
+  clearState(): void {
+    localStorage.removeItem('memory-game-state');
+  }
 }
